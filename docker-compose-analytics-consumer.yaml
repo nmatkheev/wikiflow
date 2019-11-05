@@ -10,6 +10,18 @@ services:
       - "4040:4040"
     volumes:
       - delta:/storage
+  delta-consumer:
+    build:
+      context: ./consumer
+      dockerfile: Dockerfile-delta
+    networks:
+      - wikiflow-network
+    ports:
+      - "4041:4040"
+    volumes:
+      - delta:/storage
+    depends_on:
+      - "analytics-consumer"
 networks:
   wikiflow-network:
     external:

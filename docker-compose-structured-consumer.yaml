@@ -6,6 +6,8 @@ services:
       dockerfile: Dockerfile-structured
     networks:
       - wikiflow-network
+    ports:
+      - "4040:4040"
     deploy:
       resources:
         limits:
